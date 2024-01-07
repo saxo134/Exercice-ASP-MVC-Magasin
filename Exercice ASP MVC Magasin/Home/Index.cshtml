@@ -1,0 +1,40 @@
+﻿@using Exercice_ASP_MVC_Magasin.Models
+@model IEnumerable<Exercice_ASP_MVC_Magasin.Models.Product>
+@{
+    Layout = null;
+}
+
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Liste des produits</title>
+</head>
+<body>
+    <div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Nom du produit</th>
+                    <th>Description</th>
+                    <th>Prix</th>
+                    <th>Catégorie</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (Product p in Model)
+                {
+                    <tr>
+                        <td>@p.Name</td>
+                        <td>@p.Description</td>
+                        <td>@p.Price.ToString("C0")</td>
+                        <td>@p.Category</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+</body>
+</html>
